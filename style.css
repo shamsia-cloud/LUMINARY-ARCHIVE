@@ -1567,4 +1567,407 @@ h2 em {
   }
 
 
+#publishForm select option {
+  background: var(--panel-solid);
+}
+
+#publishForm input:focus,
+#publishForm textarea:focus,
+#publishForm select:focus {
+  border-color: var(--gold);
+}
+
+/* Toast */
+
+.toast {
+  position: fixed;
+  z-index: 300;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 25px);
+  background: #1a1d23;
+  border: 1px solid var(--line-bright);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  padding: 13px 18px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease;
+  min-width: 230px;
+  justify-content: center;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.toast-icon {
+  color: var(--gold);
+  font-size: 13px;
+}
+
+#toastMessage {
+  color: #c6c9d0;
+  font-size: 10px;
+}
+
+/* Responsive tablet */
+
+@media (max-width: 1000px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    padding-top: 70px;
+  }
+
+  .hero-copy {
+    max-width: 650px;
+  }
+
+  .hero-visual {
+    min-height: 500px;
+    margin-top: -20px;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .protocol-card {
+    gap: 35px;
+    padding: 40px;
+  }
+
+  .collection-content h3 {
+    font-size: 27px;
+  }
+}
+
+/* Responsive mobile */
+
+@media (max-width: 680px) {
+  .site-header,
+  .hero-section,
+  .section-padding,
+  .site-footer {
+    width: calc(100% - 32px);
+  }
+
+  .site-header {
+    height: 75px;
+  }
+
+  .desktop-nav,
+  .site-header > .header-actions .wallet-button {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 75px;
+    left: 16px;
+    right: 16px;
+    z-index: 50;
+    padding: 18px;
+    background: rgba(20, 23, 29, 0.96);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--line-bright);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mobile-menu a,
+  .mobile-menu button {
+    padding: 14px 10px;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    background: transparent;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    text-align: left;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .mobile-menu button {
+    color: var(--gold);
+    border-bottom: 0;
+  }
+
+  .hero-section {
+    display: block;
+    min-height: auto;
+    padding: 70px 0 70px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(44px, 13vw, 68px);
+    margin: 23px 0;
+  }
+
+  .hero-description {
+    font-size: 12px;
+    max-width: 330px;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+
+  .primary-button,
+  .secondary-button {
+    min-height: 44px;
+    padding: 0 16px;
+    font-size: 9px;
+  }
+
+  .hero-meta {
+    gap: 25px;
+    margin-top: 45px;
+  }
+
+  .hero-meta strong {
+    font-size: 19px;
+  }
+
+  .hero-visual {
+    min-height: 430px;
+    margin-top: 20px;
+  }
+
+  .book-stack {
+    transform: scale(0.78) rotate(-8deg);
+  }
+
+  .orbit-one {
+    width: 350px;
+    height: 150px;
+  }
+
+  .orbit-two {
+    width: 290px;
+    height: 430px;
+  }
+
+  .label-top {
+    top: 30px;
+    right: 0;
+  }
+
+  .label-bottom {
+    bottom: 25px;
+    left: 0;
+  }
+
+  .section-padding {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .section-heading {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  .section-heading > p {
+    margin-top: 20px;
+    font-size: 11px;
+  }
+
+  .section-heading h2,
+  .protocol-copy h2,
+  .publish-card h2,
+  .about-grid h2 {
+    font-size: 40px;
+  }
+
+  .archive-controls {
+    display: block;
+  }
+
+  .search-box {
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  .filter-group {
+    overflow-x: auto;
+    padding-bottom: 3px;
+  }
+
+  .filter-button {
+    white-space: nowrap;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 12px;
+  }
+
+  .book-card h3 {
+    font-size: 16px;
+  }
+
+  .book-author {
+    font-size: 9px;
+  }
+
+  .book-bottom {
+    display: block;
+  }
+
+  .book-price {
+    display: block;
+    margin-top: 7px;
+  }
+
+  .collection-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .collection-card {
+    min-height: 280px;
+  }
+
+  .collection-content {
+    padding: 23px;
+  }
+
+  .collection-content h3 {
+    font-size: 32px;
+  }
+
+  .protocol-card {
+    display: block;
+    padding: 25px;
+  }
+
+  .protocol-visual {
+    min-height: 300px;
+    margin-bottom: 30px;
+  }
+
+  .ring-one {
+    width: 240px;
+    height: 240px;
+  }
+
+  .ring-two {
+    width: 175px;
+    height: 175px;
+  }
+
+  .protocol-core {
+    width: 85px;
+    height: 85px;
+    font-size: 30px;
+  }
+
+  .protocol-copy > p {
+    font-size: 12px;
+  }
+
+  .publish-card {
+    display: block;
+    padding: 30px 25px;
+  }
+
+  .publish-card .primary-button {
+    margin-top: 28px;
+  }
+
+  .about-grid {
+    display: block;
+  }
+
+  .about-copy {
+    padding-top: 30px;
+  }
+
+  .about-copy p {
+    font-size: 12px;
+  }
+
+  .site-footer {
+    display: block;
+    padding: 30px 0;
+  }
+
+  .site-footer > p {
+    margin: 22px 0;
+  }
+
+  .footer-links {
+    gap: 18px;
+  }
+
+  .modal-book-layout {
+    grid-template-columns: 115px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .book-modal,
+  .cart-modal,
+  .checkout-modal,
+  .publish-modal {
+    padding: 25px 20px;
+  }
+
+  .modal-book-info h2 {
+    font-size: 24px;
+    padding-right: 20px;
+  }
+
+  .modal-description {
+    font-size: 10px;
+    margin: 17px 0;
+  }
+
+  .modal-meta {
+    display: block;
+    line-height: 2;
+  }
+
+  .modal-purchase-row {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .modal-purchase-row strong {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .modal-heading h2 {
+    font-size: 30px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+}
+
 
