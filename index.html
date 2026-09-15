@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Luminaries Archive — an on-chain digital book archive for curious minds."
+  />
+
+  <meta name="theme-color" content="#0b0b0d" />
+
+  <title>Luminaries Archive — On-Chain Book Archive</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+
+<body>
+
+  <!-- Ambient background -->
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="grain"></div>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <a href="#" class="brand">
+      <span class="brand-symbol">✦</span>
+      <span>
+        <strong>LUMINARIES</strong>
+        <small>ARCHIVE</small>
+      </span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="#archive">Archive</a>
+      <a href="#collections">Collections</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="wallet-button" id="connectWalletBtn">
+        <span class="wallet-dot"></span>
+        <span id="walletText">Connect Wallet</span>
+      </button>
+
+      <button class="menu-button" id="menuButton" aria-label="Open menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile navigation -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#archive">Archive</a>
+    <a href="#collections">Collections</a>
+    <a href="#about">About</a>
+    <a href="#publish">Publish Your Work</a>
+    <button id="mobileWalletBtn">Connect Wallet</button>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero-section">
+
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="eyebrow-line"></span>
+          DIGITAL LITERARY PROTOCOL
+        </div>
+
+        <h1>
+          Books for
+          <span>minds</span>
+          beyond the ordinary.
+        </h1>
+
+        <p class="hero-description">
+          Discover rare ideas, timeless works, and premium digital editions
+          within a library designed for the decentralized age.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#archive" class="primary-button">
+            Enter the Archive
+            <span>↗</span>
+          </a>
+
+          <button class="secondary-button" id="heroWalletBtn">
+            <span>◈</span>
+            Explore On-Chain
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <div>
+            <strong>14+</strong>
+            <span>Digital Works</span>
+          </div>
+
+          <div>
+            <strong>03</strong>
+            <span>Collections</span>
+          </div>
+
+          <div>
+            <strong>24/7</strong>
+            <span>Open Archive</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="hero-glow"></div>
+
+        <div class="floating-label label-top">
+          <span class="status-dot"></span>
+          ARCHIVE ONLINE
+        </div>
+
+        <div class="book-stack">
+          <div class="floating-book book-back">
+            <img src="assets/laws_of_human_nature.jpg" alt="The Laws of Human Nature" />
+          </div>
+
+          <div class="floating-book book-middle">
+            <img src="assets/psychology_of_money.jpg" alt="The Psychology of Money" />
+          </div>
+
+          <div class="floating-book book-front">
+            <img src="assets/art_of_war.jpg" alt="The Art of War" />
+          </div>
+        </div>
+
+        <div class="floating-label label-bottom">
+          <span>✦</span>
+          CURATED KNOWLEDGE
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Marquee -->
+    <section class="marquee-section">
+      <div class="marquee-track">
+        <span>READ</span>
+        <i>✦</i>
+        <span>COLLECT</span>
+        <i>✦</i>
+        <span>DISCOVER</span>
+        <i>✦</i>
+        <span>OWN IDEAS</span>
+        <i>✦</i>
+        <span>READ</span>
+        <i>✦</i>
+        <span>COLLECT</span>
+        <i>✦</i>
+        <span>DISCOVER</span>
+        <i>✦</i>
+        <span>OWN IDEAS</span>
+        <i>✦</i>
+      </div>
+    </section>
+
+    <!-- Archive -->
+    <section class="archive-section section-padding" id="archive">
+
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-line"></span>
+            THE COLLECTION
+          </div>
+
+          <h2>Explore the <em>Archive.</em></h2>
+        </div>
+
+        <p>
+          A growing collection of books exploring strategy, psychology,
+          philosophy, wealth, and human behavior.
+        </p>
+      </div>
+
+      <!-- Search and filters -->
+      <div class="archive-controls">
+        <div class="search-box">
+          <span>⌕</span>
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search titles, authors, or subjects..."
+          />
+        </div>
+
+        <div class="filter-group">
+          <button class="filter-button active" data-filter="all">All</button>
+          <button class="filter-button" data-filter="free">Free</button>
+          <button class="filter-button" data-filter="premium">Premium</button>
+        </div>
+      </div>
+
+      <!-- Book grid -->
+      <div class="book-grid" id="bookGrid">
+        <!-- Books rendered by JavaScript -->
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        <span>⌕</span>
+        <h3>No works found</h3>
+        <p>Try another search term or category.</p>
+      </div>
+
+    </section>
+
+    <!-- Collections -->
+    <section class="collections-section section-padding" id="collections">
+
+      <div class="section-heading compact">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-line"></span>
+            CURATED PATHS
+          </div>
+
+          <h2>Choose your <em>direction.</em></h2>
+        </div>
+      </div>
+
+      <div class="collection-grid">
+
+        <article class="collection-card collection-strategy">
+          <div class="collection-overlay"></div>
+          <div class="collection-content">
+            <span>01 / COLLECTION</span>
+            <h3>Strategy<br />& Power</h3>
+            <button data-collection="strategy">Explore Collection ↗</button>
+          </div>
+        </article>
+
+        <article class="collection-card collection-psychology">
+          <div class="collection-overlay"></div>
+          <div class="collection-content">
+            <span>02 / COLLECTION</span>
+            <h3>Human<br />Psychology</h3>
+            <button data-collection="psychology">Explore Collection ↗</button>
+          </div>
+        </article>
+
+        <article class="collection-card collection-philosophy">
+          <div class="collection-overlay"></div>
+          <div class="collection-content">
+            <span>03 / COLLECTION</span>
+            <h3>Philosophy<br />& Reflection</h3>
+            <button data-collection="philosophy">Explore Collection ↗</button>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- On-chain feature -->
+    <section class="protocol-section section-padding">
+
+      <div class="protocol-card">
+
+        <div class="protocol-visual">
+          <div class="protocol-ring ring-one"></div>
+          <div class="protocol-ring ring-two"></div>
+          <div class="protocol-core">✦</div>
+        </div>
+
+        <div class="protocol-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-line"></span>
+            THE ARCHIVE PROTOCOL
+          </div>
+
+          <h2>
+            Knowledge,
+            <em>collectible.</em>
+          </h2>
+
+          <p>
+            Discover digital works, collect premium editions, and build
+            your personal library through a Web3-inspired reading ecosystem.
+          </p>
+
+          <div class="protocol-points">
+            <div>
+              <span>01</span>
+              <p>Discover curated digital works</p>
+            </div>
+
+            <div>
+              <span>02</span>
+              <p>Collect free and premium editions</p>
+            </div>
+
+            <div>
+              <span>03</span>
+              <p>Keep everything in your personal archive</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Publish -->
+    <section class="publish-section section-padding" id="publish">
+
+      <div class="publish-card">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-line"></span>
+            FOR AUTHORS & CREATORS
+          </div>
+
+          <h2>Have something<br /><em>worth preserving?</em></h2>
+
+          <p>
+            Submit your work to become part of the next generation
+            of independent digital literature.
+          </p>
+        </div>
+
+        <button class="primary-button" id="publishBtn">
+          Publish Your Work
+          <span>↗</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- About -->
+    <section class="about-section section-padding" id="about">
+
+      <div class="about-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-line"></span>
+            ABOUT LUMINARIES
+          </div>
+
+          <h2>
+            A sanctuary for
+            <em>ideas.</em>
+          </h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            Luminaries Archive is a digital literary space built around
+            discovery, independent thought, and accessible knowledge.
+          </p>
+
+          <p>
+            From timeless classics to emerging voices, the archive exists
+            to make meaningful works easier to discover, collect, and read.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <span class="brand-symbol">✦</span>
+      <span>
+        <strong>LUMINARIES</strong>
+        <small>ARCHIVE</small>
+      </span>
+    </div>
+
+    <p>© 2026 Luminaries Archive. A digital literary protocol.</p>
+
+    <div class="footer-links">
+      <a href="#archive">Archive</a>
+      <a href="#about">About</a>
+      <a href="#publish">Publish</a>
+    </div>
+  </footer>
+
+  <!-- Book details modal -->
+  <div class="modal-backdrop" id="bookModal">
+    <div class="modal book-modal">
+
+      <button class="modal-close" data-close-modal>×</button>
+
+      <div class="modal-book-layout">
+        <div class="modal-book-cover">
+          <img id="modalBookCover" src="" alt="" />
+        </div>
+
+        <div class="modal-book-info">
+          <span class="modal-label" id="modalBookType">PREMIUM EDITION</span>
+
+          <h2 id="modalBookTitle">Book Title</h2>
+
+          <p class="modal-author" id="modalBookAuthor">Author</p>
+
+          <p class="modal-description" id="modalBookDescription">
+            Book description.
+          </p>
+
+          <div class="modal-meta">
+            <span id="modalBookCategory">Category</span>
+            <span id="modalBookFormat">PDF Edition</span>
+          </div>
+
+          <div class="modal-purchase-row">
+            <strong id="modalBookPrice">FREE</strong>
+
+            <button class="primary-button" id="modalActionBtn">
+              Read Now
+              <span>↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Cart drawer -->
+  <div class="modal-backdrop" id="cartModal">
+    <div class="modal cart-modal">
+
+      <button class="modal-close" data-close-modal>×</button>
+
+      <div class="modal-heading">
+        <span class="eyebrow">YOUR COLLECTION CART</span>
+        <h2>Ready to <em>collect?</em></h2>
+      </div>
+
+      <div class="cart-items" id="cartItems">
+        <!-- Cart items rendered by JS -->
+      </div>
+
+      <div class="cart-empty" id="cartEmpty">
+        <span>◇</span>
+        <p>Your cart is currently empty.</p>
+      </div>
+
+      <div class="cart-footer">
+        <div>
+          <span>Total</span>
+          <strong id="cartTotal">0.000 ETH</strong>
+        </div>
+
+        <button class="primary-button" id="checkoutBtn">
+          Checkout
+          <span>↗</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Checkout modal -->
+  <div class="modal-backdrop" id="checkoutModal">
+    <div class="modal checkout-modal">
+
+      <button class="modal-close" data-close-modal>×</button>
+
+      <div class="modal-heading">
+        <span class="eyebrow">SECURE COLLECTION</span>
+        <h2>Confirm your <em>acquisition.</em></h2>
+      </div>
+
+      <div class="transaction-box">
+        <div>
+          <span>Wallet</span>
+          <strong id="checkoutWallet">Not connected</strong>
+        </div>
+
+        <div>
+          <span>Network</span>
+          <strong>Archive Network</strong>
+        </div>
+
+        <div>
+          <span>Total</span>
+          <strong id="checkoutTotal">0.000 ETH</strong>
+        </div>
+      </div>
+
+      <button class="primary-button full-button" id="confirmTransactionBtn">
+        Confirm Transaction
+        <span>↗</span>
+      </button>
+
+      <p class="checkout-note">
+        Prototype transaction interface. No real funds are transferred.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Publish modal -->
+  <div class="modal-backdrop" id="publishModal">
+    <div class="modal publish-modal">
+
+      <button class="modal-close" data-close-modal>×</button>
+
+      <div class="modal-heading">
+        <span class="eyebrow">CREATOR SUBMISSION</span>
+        <h2>Enter the <em>archive.</em></h2>
+      </div>
+
+      <form id="publishForm">
+
+        <div class="form-row">
+          <label>
+            Author Name
+            <input type="text" id="authorName" required />
+          </label>
+
+          <label>
+            Book Title
+            <input type="text" id="submissionTitle" required />
+          </label>
+        </div>
+
+        <label>
+          Category
+          <select id="submissionCategory" required>
+            <option value="">Select category</option>
+            <option>Strategy</option>
+            <option>Psychology</option>
+            <option>Philosophy</option>
+            <option>Finance</option>
+            <option>Literature</option>
+            <option>Other</option>
+          </select>
+        </label>
+
+        <label>
+          Description
+          <textarea id="submissionDescription" rows="4" required></textarea>
+        </label>
+
+        <button type="submit" class="primary-button full-button">
+          Submit Work
+          <span>↗</span>
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✦</span>
+    <span id="toastMessage">Action completed.</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+  </html>
