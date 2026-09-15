@@ -1,0 +1,29 @@
+{
+  "name": "Luminary Archives",
+  "short_name": "Luminary",
+  "description": "An on-chain digital book archive for discovering, collecting, and accessing timeless literature.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#090a0d",
+  "theme_color": "#090a0d",
+  "orientation": "portrait-primary",
+  "categories": [
+    "books",
+    "education",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "assets/library-01.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/library-02.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}
